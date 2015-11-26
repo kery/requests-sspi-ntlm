@@ -1,5 +1,5 @@
 # requests-sspi-ntlm
-HTTP NTLM authentication using SSPI module for requests library (inspired by [requests-ntlm](https://github.com/requests/requests-ntlm)).
+HTTP NTLM authentication using SSPI module for requests library.
 
 ## Usage
 
@@ -22,3 +22,7 @@ python setup.py install
 
 * requests
 * pywin32
+
+## Reference
+
+[requests-ntlm](https://github.com/requests/requests-ntlm)
