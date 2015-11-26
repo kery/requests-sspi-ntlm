@@ -3,7 +3,7 @@ HTTP NTLM authentication using SSPI module for requests library (inspired by [re
 
 ## Usage
 
-```
+```python
 import requests
 from requests_sspi_ntlm import HttpNtlmAuth
 
