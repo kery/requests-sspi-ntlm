@@ -67,14 +67,16 @@ class HttpNtlmAuth(AuthBase):
 
     def response_hook(self, resp, **kwargs):
         if resp.status_code == 401:
-            www_authenticate = resp.headers.get("www-authenticate", "").upper()
+            resp_auth_hdr = "WWW-Authenticate"
+            www_authenticate = resp.headers.get(resp_auth_hdr, "").upper()
             if "NTLM" in www_authenticate:
-                return self.do_ntlm_auth("www-authenticate", "Authorization",
+                return self.do_ntlm_auth(resp_auth_hdr, "Authorization",
                                          resp, kwargs)
         elif resp.status_code == 407:
-            proxy_authenticate = resp.headers.get("proxy-authenticate", "").upper()
+            resp_auth_hdr = "Proxy-Authenticate"
+            proxy_authenticate = resp.headers.get(resp_auth_hdr, "").upper()
             if "NTLM" in proxy_authenticate:
-                return self.do_ntlm_auth("proxy-authenticate", "Proxy-authorization",
+                return self.do_ntlm_auth(resp_auth_hdr, "Proxy-Authorization",
                                          resp, kwargs)
         return resp
 

@@ -1,5 +1,5 @@
 # requests-sspi-ntlm
-HTTP NTLM authentication using SSPI module for requests library.
+HTTP NTLM authentication using SSPI module for requests library. Supporting complete the authorization without login information even username. In this case, current user will be used for authorization.
 
 ## Usage
 
